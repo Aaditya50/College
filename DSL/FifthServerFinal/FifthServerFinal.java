@@ -70,7 +70,6 @@ class Server2Connection implements Runnable
 			boolean serverStop = false;
 			while (true) {
 				line = is.readLine(); 
-				System.out.println( "Received " + line + " from Connection " + id + "." );
 				int n = Integer.parseInt(line);
 				if ( n == -1 ) {
 					serverStop = true;
@@ -79,6 +78,7 @@ class Server2Connection implements Runnable
 				}
 				if ( n == 0 ) break;
 				os.println("" + n*n ); 
+				System.out.println( "Received " + line + " from Connection " + id + "="+n*n );
 			}
 			System.out.println( "Connection " + id + " closed." );
 			is.close();
